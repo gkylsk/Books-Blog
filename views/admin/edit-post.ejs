@@ -1,0 +1,24 @@
+<a href="/dashboard">&larr; Back</a>
+<div class="admin-title">
+    <h2>View / Edit Post</h2>
+
+    <form action="/delete-post/<%= data._id %>?_method=DELETE" method="post">
+        <input type="submit" value="Delete" class="btn-delete btn">
+    </form>
+</div>
+
+<form action="/edit-post/<%= data._id %>?_method=PUT" method="post" enctype="multipart/form-data">
+    <label for="title"><b>Title</b></label>
+    <input type="text" placeholder="Post Title" name="title" value="<%= data.title %>">
+
+    <label for="body"><b>Decription</b></label>
+    <textarea name="body" cols="50" rows="10"><%= data.body %></textarea>
+
+    <label for="author"><b>Author</b></label>
+    <input type="text" placeholder="Post Author Name" name="author" value="<%= data.author %>">
+
+    <label for="image"><b>Image</b></label><br>
+    <input type="file" placeholder="Post Book Image" name="image" accept="image/*" value="<%= data.image %>">
+    <br><br>
+    <input type="submit" value="Update" class="btn">
+</form>
